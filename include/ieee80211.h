@@ -1393,7 +1393,7 @@ enum ieee80211_state {
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(5, 18, 0))
 static inline int is_multicast_mac_addr(const u8 *addr)
 #else
-extern __inline int is_multicast_mac_addr(const u8 *addr)
+static __inline int is_multicast_mac_addr(const u8 *addr)
 #endif
 {
         return ((addr[0] != 0xff) && (0x01 & addr[0]));
@@ -1402,7 +1402,7 @@ extern __inline int is_multicast_mac_addr(const u8 *addr)
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(5, 18, 0))
 static inline int is_broadcast_mac_addr(const u8 *addr)
 #else
-extern __inline int is_broadcast_mac_addr(const u8 *addr)
+static __inline int is_broadcast_mac_addr(const u8 *addr)
 #endif
 
 {
@@ -1413,7 +1413,7 @@ extern __inline int is_broadcast_mac_addr(const u8 *addr)
 #if (LINUX_VERSION_CODE >= KERNEL_VERSION(5, 18, 0))
 static inline int is_zero_mac_addr(const u8 *addr)
 #else
-extern __inline int is_zero_mac_addr(const u8 *addr)
+static __inline int is_zero_mac_addr(const u8 *addr)
 #endif
 {
 	return ((addr[0] == 0x00) && (addr[1] == 0x00) && (addr[2] == 0x00) &&   \
